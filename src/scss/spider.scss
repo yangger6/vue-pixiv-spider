@@ -1,0 +1,120 @@
+.search-input{
+  border: none;
+  outline: none;
+  height: 50px;
+  text-indent: 10px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #0096db; opacity:1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #0096db;opacity:1;
+}
+
+input:-ms-input-placeholder{
+  color: #0096db;opacity:1;
+}
+input::-webkit-input-placeholder{
+  color: #0096db;opacity:1;
+}
+.spider{
+  width: 100%;
+  height: 100%;
+}
+.search{
+  width: 100%;
+  height: 50px;
+  position:relative;
+  >span{
+    display:block;
+    width:calc(100% - 30% - 50px);
+    float: left;
+    &:after{
+      content: '';
+      height: 3px;
+      width: 0;
+      background: #0096db;
+      margin: 0 auto;
+      transition: all .3s ease;
+      position: absolute;
+      left: 0;
+      top: 48px;
+    }
+    &:hover::after{
+      width: calc(100% - 30% - 50px);
+    }
+  }
+  .se-input{
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+    @extend .search-input;
+  }
+  .select{
+    width: 30%;
+    height: inherit;
+    float: left;
+    position: relative;
+    input{
+      width: 100%;
+      cursor: pointer;
+      @extend .search-input;
+    }
+    .select-list{
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      background: #fff;
+      left: 0;
+      top:0;
+      height: 0;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+      0 1px 5px 0 rgba(0,0,0,0.12),
+      0 3px 1px -2px rgba(0,0,0,0.2);
+      li{
+        cursor: pointer;
+        &:active,:hover{
+          background:#eee
+        }
+        span{
+          font-size: 16px;
+          color: #0096db;
+          display: block;
+          line-height: 22px;
+          padding: 6px 5px;
+        }
+      }
+      .selectedli{
+        background-color: #e1e1e1;
+      }
+      .disabled{
+        background-color: transparent;
+        cursor: default;
+        span{
+          color: rgba(0,0,0,0.3);
+        }
+      }
+    }
+    .selected{
+      opacity: 1;
+      overflow: hidden;
+      height: 240px;
+      display: block;
+    }
+    >svg{
+      position: absolute;
+      right: 5px;
+      top: 18px;
+    }
+  }
+  i{
+    width: 50px;
+    height: 50px;
+    float: right;
+    >svg{
+      width: 25px;
+      height: 25px;
+      padding: 12px;
+    }
+  }
+}
